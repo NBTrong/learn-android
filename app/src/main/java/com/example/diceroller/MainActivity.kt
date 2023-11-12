@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -13,10 +14,16 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener {
-            val textView = findViewById<TextView>(R.id.textView)
+            val imageView = findViewById<ImageView>(R.id.imageView)
 
-            val value = rollDole()
-            textView.text = value.toString()
+            when (rollDole()) {
+                1 -> imageView.setImageResource(R.drawable.dice_1)
+                2 -> imageView.setImageResource(R.drawable.dice_2)
+                3 -> imageView.setImageResource(R.drawable.dice_3)
+                4 -> imageView.setImageResource(R.drawable.dice_4)
+                5 -> imageView.setImageResource(R.drawable.dice_5)
+                6 -> imageView.setImageResource(R.drawable.dice_6)
+            }
         }
     }
 
